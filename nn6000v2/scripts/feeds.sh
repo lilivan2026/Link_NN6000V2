@@ -26,12 +26,6 @@ update_feeds() {
         echo "src-git mosdns https://github.com/sbwml/luci-app-mosdns.git;v5" >>"$FEEDS_PATH"
     fi
 
-    # 4. 注入 ddnsto 官方适配源
-    if ! grep -q "luci-app-ddnsto" "$FEEDS_PATH"; then
-        [ -z "$(tail -c 1 "$FEEDS_PATH")" ] || echo "" >>"$FEEDS_PATH"
-        echo "src-git ddnsto https://github.com/sbwml/luci-app-ddnsto.git" >>"$FEEDS_PATH"
-    fi
-
     if ! grep -q "openwrt-packages" "$FEEDS_PATH"; then
         [ -z "$(tail -c 1 "$FEEDS_PATH")" ] || echo "" >>"$FEEDS_PATH"
         echo "src-git openwrt_packages https://github.com/kenzok8/openwrt-packages.git" >>"$FEEDS_PATH"
